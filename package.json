@@ -1,0 +1,35 @@
+{
+  "name": "vuellet-api",
+  "version": "1.0.0",
+  "description": "API for the Vuellet client - A simple wallet that lets you manage your expenses and savings 👛",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.5",
+    "nodemon": "^1.19.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinkSake/vuellet-api.git"
+  },
+  "keywords": [
+    "wallet",
+    "node.js",
+    "mongoose",
+    "simple-api",
+    "expense-traker",
+    "expense-manager"
+  ],
+  "author": "Luis Angel Ortega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LinkSake/vuellet-api/issues"
+  },
+  "homepage": "https://github.com/LinkSake/vuellet-api#readme"
+}
