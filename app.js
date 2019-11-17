@@ -33,3 +33,5 @@ app.use(require('body-parser').urlencoded({ extended: true }));
 app.use('/categories', require("./routes/categoryRoutes"));
 app.use('/user', require("./routes/userRoutes"));
 app.use('/accounts', require("./routes/accountRoutes"));
+app.use('/budget', require("./routes/budgetRoutes"));
+app.use('/transaction', require("./routes/transactionRoutes"));

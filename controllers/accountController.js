@@ -9,7 +9,7 @@ exports.AccountController = class AccountClass {
     require('auto-bind')(this);
   }
 
-  //Crea una nueva categoria
+  //Crea una nueva cuenta
   async createAccount(req, res){
     try {
         const account = new Account(req.body);
@@ -23,7 +23,7 @@ exports.AccountController = class AccountClass {
     }
   }
 
-  //Regresa una lista con todas las categorias de un usuario
+  //Regresa una lista con todas las cuentas de un usuario
   async getAllAccounts(req, res){
     try {
         res.status(200).json(await Account.find({user_id: ObjectId(req.params.user_id)}));
@@ -32,7 +32,7 @@ exports.AccountController = class AccountClass {
     }
   }
 
-  //Regresa los datos de una sola categoria
+  //Regresa los datos de una sola cuenta
   async getOneAccount(req, res){
       try {
             res.status(200).json(await Account.findById(req.params.id));
@@ -43,7 +43,7 @@ exports.AccountController = class AccountClass {
 
   //TODO: Hacer un método que regrese todas las transacciones de una cuenta
 
-  //Actualiza los datos de una categoria
+  //Actualiza los datos de una cuenta
   async updateAccount(req, res){
     try {
         let account = await Account.findById(req.params.id);
@@ -56,7 +56,7 @@ exports.AccountController = class AccountClass {
   }
 
   //FIX: Arreglar el que se borren las transacciones junto con la cuenta
-  //Borra una categoria
+  //Borra una cuenta
   async deleteAccount(req, res){
     try {
         let accountFlag = await Account.findOneAndRemove({_id:req.params.id});
