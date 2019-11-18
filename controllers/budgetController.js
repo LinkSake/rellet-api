@@ -1,5 +1,4 @@
 const Budget = require('../models/budgetModel');
-const ObjectId = require('mongoose').Types.ObjectId;
 
 exports.BudgetController = class BudgetClass {
   
@@ -12,9 +11,6 @@ exports.BudgetController = class BudgetClass {
   async createBudget(req, res){
     try {
         const budget = new Budget(req.body);
-        if (!req.body.user_id) {
-            budget.user_id = ObjectId()
-        }
         await budget.save();
         res.status(200).json(budget);
     } catch (error) {
@@ -59,7 +55,7 @@ exports.BudgetController = class BudgetClass {
     (body.freq) ? budget.freq = body.freq : null;
     (body.initDate) ? budget.initDate = body.initDate : null;
     (body.desc) ? budget.desc = body.desc : null;
-    (body.amouant) ? budget.amount = body.amount : null;
+    (body.amount) ? budget.amount = body.amount : null;
     return budget
   }
 }
