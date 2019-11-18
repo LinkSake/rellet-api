@@ -35,3 +35,5 @@ app.use('/user', require("./routes/userRoutes"));
 app.use('/accounts', require("./routes/accountRoutes"));
 app.use('/budget', require("./routes/budgetRoutes"));
 app.use('/transaction', require("./routes/transactionRoutes"));
+
+module.exports = app

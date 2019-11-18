@@ -4,17 +4,15 @@
   "description": "API for the Vuellet client - A simple wallet that lets you manage your expenses and savings 👛",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon app.js"
   },
   "dependencies": {
     "auto-bind": "^3.0.0",
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
-    "mocha": "^6.2.2",
     "mongoose": "^5.7.5",
     "nodemon": "^1.19.4"
   },
@@ -35,5 +33,10 @@
   "bugs": {
     "url": "https://github.com/LinkSake/vuellet-api/issues"
   },
-  "homepage": "https://github.com/LinkSake/vuellet-api#readme"
+  "homepage": "https://github.com/LinkSake/vuellet-api#readme",
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "chai": "^4.2.0",
+    "supertest": "^4.0.2"
+  }
 }
