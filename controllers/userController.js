@@ -35,8 +35,8 @@ exports.UserController = class userClass {
             user: user, 
             budget: budget,
             categories: categories,
-            transaction: transaction,
-            account: account
+            transactions: transaction,
+            accounts: account
           });
       } catch (error) {
             res.status(400).json(error);
@@ -69,7 +69,7 @@ exports.UserController = class userClass {
   
   //Agrega los datos a un modelo de usuario desde el body
   setData(user, body){
-    (body.fistName) ? user.fistName = body.fistName : null;
+    (body.firstName) ? user.firstName = body.firstName : null;
     (body.lastName) ? user.lastName = body.lastName : null;
     (body.email) ? user.email = body.email : null;
     (body.password) ? user.password = body.password : null;
