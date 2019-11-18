@@ -8,7 +8,7 @@ const budgetSchema = new Schema({
     initDate: {type: Date, required:[true, '¿Cuándo inicia tu presupuesto?']}, 
     desc:     {type:String},
     amount:   {type:Number, required:[true, '¿Cuánto dinero vas a asignarle a este presupuesto?']},
-    user_id:  ObjectId
+    user_id:  {type:ObjectId, ref:'User'}
 });
 
 module.exports = mongoose.model('Budget', budgetSchema);

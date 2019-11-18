@@ -35,13 +35,12 @@ exports.AccountController = class AccountClass {
   //Regresa los datos de una sola cuenta
   async getOneAccount(req, res){
       try {
-            res.status(200).json(await Account.findById(req.params.id));
+            let account = await Account.findById(req.params.id).populate('trans');
+            res.status(200).json(account);
       } catch (error) {
             res.status(400).json(error);
       }
   }
-
-  //TODO: Hacer un método que regrese todas las transacciones de una cuenta
 
   //Actualiza los datos de una cuenta
   async updateAccount(req, res){
@@ -55,16 +54,17 @@ exports.AccountController = class AccountClass {
     }
   }
 
-  //FIX: Arreglar el que se borren las transacciones junto con la cuenta
   //Borra una cuenta
   async deleteAccount(req, res){
     try {
         let accountFlag = await Account.findOneAndRemove({_id:req.params.id});
-        let user_id = accountFlag.user_id
-        let transactionFlag = await Transaction.findOneAndRemove({user_id:ObjectId(user_id)});
-        res.status(200).json({accountFlag, transactionFlag});
+        accountFlag.trans.forEach(element => {
+          this.deleteTransactions(element)
+        });
+        res.status(200).json(accountFlag);
     } catch (error) {
         res.status(500).json(error);
+        console.log(error);
     }
   }
 
@@ -73,5 +73,9 @@ exports.AccountController = class AccountClass {
     (body.name) ? account.name = body.name : null;
     (body.amount) ? account.amount = body.amount : null;
     return account
+  }
+
+  async deleteTransactions(trans){
+    let delTrans = await Transaction.findOneAndRemove({_id:ObjectId(trans)});
   }
 }
