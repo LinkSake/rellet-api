@@ -30,6 +30,7 @@ exports.TransactionController = class TransactionClass {
         }
     } catch (error) {
         res.status(500).json(error);
+        console.log(error);
     }
   }
 

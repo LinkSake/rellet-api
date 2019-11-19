@@ -7,16 +7,11 @@ const assert = require('chai').assert;
 //Punto de entrada de la aplicación
 const app = require("../app.js");
 
-//Configuración de la base de datos
-mongoose.plugin(schema => {
-    schema.options.usePushEach = true
-});
-
 // Promesas nativas de mongoose
 mongoose.Promise = Promise;
 
 // Conectar a la BD
-mongoose.connect(process.env.MONGODB_URI_TEST, {usePushEach: true});
+mongoose.connect(process.env.MONGODB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on("open", function () {
     console.log("-> MongoTest is online!");
 });
@@ -78,24 +73,23 @@ describe('/budget', () =>{
             });
     });
     
-    //FIXME: This test only works 1 of 2 times, even tough everything seems alright
-    // describe('Given that I want to know the information of a new budget',()=>{
-    //     it('Will have name, frequency and an intial date',(done) => {
-    //         supertest(app)
-    //             .get('/budget/'+budgetID)
-    //             .expect(200)
-    //             .end((err, res)=>{
-    //                 if (err) {
-    //                     done(err);
-    //                 } else {           
-    //                     assert.deepEqual(res.body.name, 'Presupuesto', 'Name was not defined');
-    //                     assert.deepEqual(res.body.freq, 'Semanal', 'Frequency was not defined');
-    //                     assert.deepEqual(res.body.initDate, '2017-01-26T11:00:00.000Z', 'Inital date was not defined');
-    //                     done();
-    //                 }
-    //             });
-    //         });
-    // });
+    describe('Given that I want to know the information of a new budget',()=>{
+        it('Will have name, frequency and an intial date',(done) => {
+            supertest(app)
+                .get('/budget/'+budgetID)
+                .expect(200)
+                .end((err, res)=>{
+                    if (err) {
+                        done(err);
+                    } else {           
+                        assert.deepEqual(res.body.name, 'Presupuesto', 'Name was not defined');
+                        assert.deepEqual(res.body.freq, 'Semanal', 'Frequency was not defined');
+                        assert.deepEqual(res.body.initDate, '2017-01-26T11:00:00.000Z', 'Inital date was not defined');
+                        done();
+                    }
+                });
+            });
+    });
 
     describe('Given that I want to edit a new budget',()=>{
         it('Will return the new budget',(done) => {

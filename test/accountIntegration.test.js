@@ -7,19 +7,11 @@ const assert = require('chai').assert;
 //Punto de entrada de la aplicación
 const app = require("../app.js");
 
-//Configuración de la base de datos
-mongoose.plugin(schema => {
-    schema.options.usePushEach = true
-});
-
 // Promesas nativas de mongoose
 mongoose.Promise = Promise;
 
 // Conectar a la BD
-mongoose.connect(process.env.MONGODB_URI_TEST, {usePushEach: true});
-mongoose.connection.on("open", function () {
-    console.log("-> MongoTest is online!");
-});
+mongoose.connect(process.env.MONGODB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true  });
 
 let accountID = "";
 
@@ -67,6 +59,23 @@ describe('/accounts', () => {
                     }
                 });
             });
+    });
+
+    describe('Given that I want to list all the accounts of a user', () => {
+        it('Will return an array of 1 account', (done) => {
+            supertest(app)
+            .get('/accounts/list/5dd1ec7b9bbc170f53b20471')
+            .expect(200)
+            .end((err, res)=>{
+                if (err) {
+                    done(err);
+                } else {
+                    assert.isArray(res.body,'An array is not returned');
+                    assert.deepEqual(res.body.length, 1, 'There is more than one transaction');
+                    done();
+                }
+            });
+        });
     });
 
     describe('Given that I want to know the information of a new account',()=>{
