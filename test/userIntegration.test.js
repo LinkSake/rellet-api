@@ -121,9 +121,9 @@ describe('/user', () =>{
                         done(err);
                     } else {
                         assert.deepEqual(res.body.firstName, 'Noel Daniel','First name is unedited');
-                        assert.deepEqual(res.body.lastName, 'Aguilera', 'First name is unedited');
-                        assert.deepEqual(res.body.email, 'dany@pizcador.com', 'First name is unedited');
-                        assert.deepEqual(res.body.password, 'abcdefg', 'First name is unedited');
+                        assert.deepEqual(res.body.lastName, 'Aguilera', 'Lasr name is unedited');
+                        assert.deepEqual(res.body.email, 'dany@pizcador.com', 'Email is unedited');
+                        assert.deepEqual(res.body.password, 'abcdefg', 'Password is unedited');
                         done();
                     }
                 });
