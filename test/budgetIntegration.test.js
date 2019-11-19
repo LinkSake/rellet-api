@@ -12,9 +12,6 @@ mongoose.Promise = Promise;
 
 // Conectar a la BD
 mongoose.connect(process.env.MONGODB_URI_TEST, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connection.on("open", function () {
-    console.log("-> MongoTest is online!");
-});
 
 budgetID = "";
 

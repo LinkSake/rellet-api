@@ -124,5 +124,27 @@ exports.UserController = class userClass {
     }
   }
 
+  //Compara la sumatoria del maximo de las categorias con el presupuesto dado
+  isInBudget(budget, totalCat){
+    let diff = 0;
+    let status = '';
+    if (totalCat <= budget) {
+      diff = budget - totalCat;
+      status = '¡En hora buena, estás dentro del presupuesto!'
+    } else {
+      diff = totalCat - budget;
+      status = 'Chanfle, te pasaste de tu presupesto'
+    }
+    return {diff:diff, status:status}
+  }
+
+  //Obtiene el total de la suma de los elementos de un arreglo
+  getTotal(amounts){
+    let total = 0;
+    amounts.forEach(element => {
+      total += element
+    });
+    return total;
+  }
 
 }
