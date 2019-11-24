@@ -29,7 +29,7 @@ describe('/user', () =>{
                 .post('/user')
                 .send('firstName=Luis Angel')
                 .send('lastName=Ortega')
-                .send('email=angel@vuellet.io')
+                .send('email=angel@rellet.io')
                 .send('password=123456')
                 .expect(200)
                 .end((err, res)=>{
@@ -38,7 +38,7 @@ describe('/user', () =>{
                     } else {
                         assert(res.body.firstName,'Luis Angel');
                         assert(res.body.lastName,'Ortega');
-                        assert(res.body.email,'angel@vuelllet.io');
+                        assert(res.body.email,'angel@rellet.io');
                         assert(res.body.password,'123456');
                         userID = res.body._id;
                         done();
@@ -74,7 +74,7 @@ describe('/user', () =>{
                     } else {
                         assert.deepEqual(res.body.user.firstName,'Luis Angel','First name is missing');
                         assert.deepEqual(res.body.user.lastName,'Ortega','Last name is missing');
-                        assert.deepEqual(res.body.user.email,'angel@vuellet.io','Email is missing');
+                        assert.deepEqual(res.body.user.email,'angel@rellet.io','Email is missing');
                         assert.deepEqual(res.body.user.password,'123456','Password is missing');  
                         done();
                     }

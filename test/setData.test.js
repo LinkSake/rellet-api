@@ -92,7 +92,7 @@ describe('setData() form', () => {
         let user = {
             firstName: 'Luis Angel',
             lastName: 'Ortega',
-            email: 'angel@vuellet.io',
+            email: 'angel@rellet.io',
             password: '123456'
         };
         let newData = {

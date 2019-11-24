@@ -1,7 +1,7 @@
 {
-  "name": "vuellet-api",
+  "name": "rellet-api",
   "version": "1.0.0",
-  "description": "API for the Vuellet client - A simple wallet that lets you manage your expenses and savings 👛",
+  "description": "API for the Rellet client - A simple wallet that lets you manage your expenses and savings 👛",
   "main": "app.js",
   "scripts": {
     "test": "mocha",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LinkSake/vuellet-api.git"
+    "url": "git+https://github.com/LinkSake/rellet-api.git"
   },
   "keywords": [
     "wallet",
@@ -31,9 +31,9 @@
   "author": "Luis Angel Ortega",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LinkSake/vuellet-api/issues"
+    "url": "https://github.com/LinkSake/rellet-api/issues"
   },
-  "homepage": "https://github.com/LinkSake/vuellet-api#readme",
+  "homepage": "https://github.com/LinkSake/rellet-api#readme",
   "devDependencies": {
     "mocha": "^6.2.2",
     "chai": "^4.2.0",

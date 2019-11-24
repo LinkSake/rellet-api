@@ -1,4 +1,4 @@
-# Vuellet
+# Rellet
 
 A simple wallet that lets you manage your expenses and savings 👛
 
@@ -46,3 +46,9 @@ This is if you want to run it locally.
 ---
 ## Documentation
 The RESTful API of this project was documented using Postman. Import the documentation to your postman [here](https://www.getpostman.com/collections/066bf96d9fa5527d2980).
+
+---
+## TODO
+- [] Desarrollar cliente
+- [] Implementar balance a la hora de llamar el usuario
+- [] Encriptar contraseña con AES (Moongose - moongose-encrypt)
