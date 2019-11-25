@@ -3,9 +3,9 @@ const express = require("express"),
   mongoose = require('mongoose')
 require('dotenv').config();
 
-app.listen(3000, function () {
+app.listen(8000, function () {
   console.clear();
-  console.log("-> You're up on port 3000!");
+  console.log("-> You're up on port 8000!");
 });
 
 /*set db*/
@@ -29,7 +29,7 @@ app.use(require('body-parser').json());
 app.use(require('body-parser').urlencoded({ extended: true }));
 
 /*Routes*/
-// app.use('/',require("./routes/landingRoutes"));
+app.use('/',require("./routes/sessionRoutes"));
 app.use('/categories', require("./routes/categoryRoutes"));
 app.use('/user', require("./routes/userRoutes"));
 app.use('/accounts', require("./routes/accountRoutes"));

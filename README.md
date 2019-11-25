@@ -5,24 +5,14 @@ A simple wallet that lets you manage your expenses and savings 👛
 ---
 ## Get Started
 
-As pre-requirements, you will need NodeJS, NPM, VueJS and MongoDB installed on your system.
+As pre-requirements, you will need NodeJS, NPM and MongoDB installed on your system.
 With that said, go and clone this repo!
 
 ### Installation
-- #### API
 
 Run the following command to get all the dependencies from the package.json that you will need
 
      npm install
-
-- #### Client
-
-The same goes for the client-side, go to the client directory and install the dependencies with npm as follows
-
-    cd client
-    npm install
-
----
 
 ## Configuration
 
@@ -49,6 +39,5 @@ The RESTful API of this project was documented using Postman. Import the documen
 
 ---
 ## TODO
-- [] Desarrollar cliente
 - [] Implementar balance a la hora de llamar el usuario
 - [] Encriptar contraseña con AES (Moongose - moongose-encrypt)
